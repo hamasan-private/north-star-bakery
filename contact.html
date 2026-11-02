@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact and Pre-Orders | North Star Bakery</title>
+  <meta name="description"
+    content="Ask North Star Bakery a question or send a pre-order request. Pickup dates,
+      allergy notes, location, and opening hours are all on this page.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="bakery-logo_c.png" width="160" height="137"
+        alt="North Star Bakery logo: a loaf in a bread basket with wheat in the middle">
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Breads and cakes</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <h1>Contact us and pre-order</h1>
+    <p class="lead">Use the form for pre-orders, cake questions, wholesale inquiries, or
+      anything else. Priya reads these between 7:00 and 9:00 in the morning, so a request
+      sent overnight usually gets an answer before the second bake. If it is urgent, call
+      the counter instead.</p>
+
+    <div class="split">
+      <div class="split-main">
+        <form action="contact.html" method="post">
+          <fieldset>
+            <legend>Your contact details</legend>
+
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name"
+                maxlength="80" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" autocomplete="email"
+                placeholder="you@example.com" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number (optional)</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="503-555-0134"
+                aria-describedby="phone-help">
+              <span class="hint" id="phone-help">Use the format 503-555-0134 so we can
+                call you about a pickup change.</span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>What you need</legend>
+
+            <div class="field">
+              <label for="request-type">Type of request</label>
+              <select id="request-type" name="request-type" required>
+                <option value="">Choose one</option>
+                <option value="preorder">Bread or pastry pre-order</option>
+                <option value="cake">Cake or celebration order</option>
+                <option value="wholesale">Wholesale for a restaurant or cafe</option>
+                <option value="question">General question</option>
+              </select>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="pickup-date">Pickup date</label>
+                <input type="date" id="pickup-date" name="pickup-date"
+                  min="2026-11-04" max="2026-12-24" required
+                  aria-describedby="date-help">
+                <span class="hint" id="date-help">Two days' notice for bread, a week for
+                  tiered cakes. Closed Mondays.</span>
+              </div>
+
+              <div class="field">
+                <label for="guests">How many people is it for? (optional)</label>
+                <input type="number" id="guests" name="guests" min="1" max="200"
+                  step="1">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="items">What would you like, and how many?</label>
+              <textarea id="items" name="items" rows="4" maxlength="600"
+                placeholder="Two country sourdough loaves and a dozen cinnamon rolls"
+                required></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Allergies and pickup notes</legend>
+
+            <div class="field">
+              <label for="allergies">Allergy notes</label>
+              <textarea id="allergies" name="allergies" rows="3" maxlength="400"
+                aria-describedby="allergy-help"></textarea>
+              <span class="hint" id="allergy-help">Tell us about nuts, dairy, gluten, or
+                anything else we should know. We bake with wheat, milk, eggs, butter, and
+                nuts in the same kitchen.</span>
+            </div>
+
+            <div class="check">
+              <input type="checkbox" id="confirm" name="confirm" value="yes" required>
+              <label for="confirm">I understand that an order is not confirmed until the
+                bakery replies</label>
+            </div>
+
+            <div class="check">
+              <input type="checkbox" id="updates" name="updates" value="yes">
+              <label for="updates">Email me when the Saturday special changes</label>
+            </div>
+          </fieldset>
+
+          <p>
+            <button type="submit">Send request</button>
+          </p>
+        </form>
+      </div>
+
+      <aside class="split-aside">
+        <h2>Where to find us</h2>
+        <p>North Star Bakery<br>
+          412 Alder Street<br>
+          Maplewood</p>
+        <p>We are on the corner of Alder and Third, one block from the library, with the
+          blue awning. There is a small lot behind the building and metered parking on
+          Alder.</p>
+
+        <h2>Hours</h2>
+        <div class="table-scroll">
+          <table>
+            <caption>Counter hours</caption>
+            <tbody>
+              <tr>
+                <th scope="row">Monday</th>
+                <td>Closed</td>
+              </tr>
+              <tr>
+                <th scope="row">Tuesday to Friday</th>
+                <td>6:30 a.m. to 5:00 p.m.</td>
+              </tr>
+              <tr>
+                <th scope="row">Saturday</th>
+                <td>7:00 a.m. to 3:00 p.m.</td>
+              </tr>
+              <tr>
+                <th scope="row">Sunday</th>
+                <td>8:00 a.m. to 1:00 p.m.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Phone: <a href="tel:+15035550134">(503) 555-0134</a>. We answer during counter
+          hours, and the phone is busiest between 7:00 and 9:00.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>North Star Bakery</strong> &middot; 412 Alder Street, Maplewood</p>
+    <p>Call us at <a href="tel:+15035550134">(503) 555-0134</a> or
+      <a href="contact.html">use the contact form</a>.</p>
+    <p class="copyright">&copy; 2026 North Star Bakery</p>
+  </footer>
+</body>
+</html>

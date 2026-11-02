@@ -1,0 +1,562 @@
+/* fonts are stored locally so the site renders the same offline */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/fraunces-600.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/karla-400.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/karla-700.woff2) format('woff2');
+}
+
+/* ---------- design tokens: four colors, two typefaces ---------- */
+:root {
+  --cream: #FBF6ED;
+  --brown: #4A2E1E;
+  --terracotta: #B4552B;
+  --charcoal: #2A2420;
+
+  --page-width: 68rem;
+  --gap: 1.25rem;
+  --radius: 10px;
+  --edge: 1px solid rgba(74, 46, 30, 0.18);
+}
+
+/* ---------- base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: "Karla", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6em;
+  color: var(--brown);
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid rgba(180, 85, 43, 0.35);
+  font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 68ch;
+}
+
+a {
+  color: var(--terracotta);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--brown);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--terracotta);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999rem;
+  z-index: 20;
+  padding: 0.7rem 1.1rem;
+  background-color: var(--brown);
+  color: var(--cream);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  color: var(--cream);
+}
+
+/* ---------- header and navigation ---------- */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem 0.75rem;
+  border-top: 6px solid var(--terracotta);
+  border-bottom: var(--edge);
+}
+
+.brand img {
+  width: 132px;
+  /* the logo file has a white square behind it; multiply drops that square
+     into the cream page instead of showing a pasted-on white block */
+  mix-blend-mode: multiply;
+}
+
+.site-nav {
+  align-self: stretch;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(74, 46, 30, 0.12);
+  color: var(--brown);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--terracotta);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--terracotta);
+}
+
+/* ---------- page frame ---------- */
+.page {
+  width: 100%;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 3rem;
+}
+
+.lead {
+  font-size: 1.125rem;
+  max-width: 60ch;
+}
+
+.eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--terracotta);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: var(--edge);
+}
+
+.hero img {
+  border-radius: var(--radius);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  background-color: var(--brown);
+  color: var(--cream);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--terracotta);
+  color: var(--cream);
+}
+
+/* ---------- cards ---------- */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin: 1.5rem 0;
+}
+
+.card {
+  flex: 1 1 17rem;
+  padding: 1.1rem 1.25rem;
+  border: var(--edge);
+  border-top: 4px solid var(--terracotta);
+  border-radius: var(--radius);
+}
+
+.card h3 {
+  margin-bottom: 0.4rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- feature rows (image beside text) ---------- */
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.feature img {
+  border-radius: var(--radius);
+}
+
+.feature .price-list {
+  margin-bottom: 0;
+}
+
+/* ---------- media ---------- */
+.media {
+  max-width: 40rem;
+  margin: 1.25rem 0 2rem;
+}
+
+audio,
+video {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+/* ---------- lists and tables ---------- */
+main ul,
+main ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.15rem;
+}
+
+main li {
+  margin-bottom: 0.4rem;
+}
+
+.hours {
+  padding-left: 1.15rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 1.25rem 0 2rem;
+  border: var(--edge);
+  border-radius: var(--radius);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+caption {
+  padding: 0.7rem 1rem;
+  background-color: var(--brown);
+  color: var(--cream);
+  font-weight: 700;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(74, 46, 30, 0.14);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  background-color: rgba(74, 46, 30, 0.07);
+  color: var(--brown);
+}
+
+tbody th {
+  color: var(--brown);
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+figure {
+  margin: 2rem 0;
+}
+
+figcaption {
+  margin-top: 0.6rem;
+  color: var(--brown);
+  font-size: 0.95rem;
+}
+
+/* ---------- forms ---------- */
+form {
+  margin-top: 1.5rem;
+}
+
+fieldset {
+  margin: 0 0 1.5rem;
+  padding: 1.1rem 1.15rem 0.5rem;
+  border: var(--edge);
+  border-radius: var(--radius);
+}
+
+legend {
+  padding: 0 0.5rem;
+  color: var(--brown);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--brown);
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1.5px solid rgba(74, 46, 30, 0.35);
+  border-radius: 8px;
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  padding: 0;
+  accent-color: var(--terracotta);
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.check label {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.hint {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--charcoal);
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
+.field-row .field {
+  flex: 1 1 13rem;
+}
+
+button {
+  padding: 0.85rem 1.8rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--brown);
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--terracotta);
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.75rem 1.25rem;
+  background-color: var(--brown);
+  color: var(--cream);
+}
+
+.site-footer p {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+}
+
+.site-footer a {
+  color: var(--cream);
+}
+
+.copyright {
+  opacity: 0.8;
+  font-size: 0.85rem;
+}
+
+/* ---------- tablet: navigation becomes a row ---------- */
+@media (min-width: 48em) {
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  .brand img {
+    width: 150px;
+  }
+
+  .site-nav {
+  align-self: stretch;
+}
+
+.site-nav ul {
+    flex-direction: row;
+    gap: 1.75rem;
+  }
+
+  .site-nav a {
+    padding: 0.25rem 0;
+    border-bottom: 3px solid transparent;
+  }
+
+  .site-nav a:hover,
+  .site-nav a[aria-current="page"] {
+    border-bottom-color: var(--terracotta);
+  }
+
+  .page {
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .info-grid {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .info-grid > * {
+    flex: 1 1 0;
+  }
+}
+
+/* ---------- desktop: side by side rows ---------- */
+@media (min-width: 60em) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-text {
+    flex: 1 1 52%;
+  }
+
+  .hero-media {
+    flex: 1 1 48%;
+  }
+
+  .feature {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+
+  .feature-media {
+    flex: 0 0 44%;
+  }
+
+  .feature-text {
+    flex: 1 1 56%;
+  }
+
+  .feature--flip .feature-media {
+    order: 2;
+  }
+
+  .feature h2 {
+    margin-top: 0;
+  }
+
+  .split {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .split-main {
+    flex: 1 1 58%;
+  }
+
+  .split-aside {
+    flex: 1 1 34%;
+    padding: 1.25rem 1.5rem;
+    border: var(--edge);
+    border-radius: var(--radius);
+  }
+
+  .split-aside h2 {
+    margin-top: 0;
+  }
+}
