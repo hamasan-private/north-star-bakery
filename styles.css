@@ -4,21 +4,21 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(fonts/fraunces-600.woff2) format('woff2');
+  src: url(fraunces-600.woff2) format('woff2');
 }
 @font-face {
   font-family: 'Karla';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(fonts/karla-400.woff2) format('woff2');
+  src: url(karla-400.woff2) format('woff2');
 }
 @font-face {
   font-family: 'Karla';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(fonts/karla-700.woff2) format('woff2');
+  src: url(karla-700.woff2) format('woff2');
 }
 
 /* ---------- design tokens: four colors, two typefaces ---------- */
