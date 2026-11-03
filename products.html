@@ -22,6 +22,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html" aria-current="page">Breads and cakes</a></li>
         <li><a href="about.html">About us</a></li>
+        <li><a href="products.html#order">My order
+          <span class="order-badge" id="order-count" hidden>0</span></a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -105,6 +107,30 @@
         2009.</figcaption>
     </figure>
 
+    <section id="order" class="order-builder">
+      <h2>Build your pre-order</h2>
+      <p>Tap what you want and it will be waiting for you at the counter. The list is
+        saved in this browser, so you can close the tab and finish the request later.
+        Prices are the same as the shelf.</p>
+
+      <div class="order-layout">
+        <div class="order-main">
+          <div class="filter-row" id="order-filters"></div>
+          <div class="order-grid" id="product-list"></div>
+        </div>
+
+        <aside class="order-panel" aria-live="polite">
+          <h3>My order</h3>
+          <ul class="order-lines" id="order-lines"></ul>
+          <p class="order-summary" id="order-summary">Your order is empty.</p>
+          <p class="order-actions">
+            <a class="button" href="contact.html">Send this order</a>
+            <button type="button" class="link-button" id="clear-order">Clear</button>
+          </p>
+        </aside>
+      </div>
+    </section>
+
     <h2>Price summary</h2>
     <div class="table-scroll">
       <table>
@@ -147,5 +173,7 @@
       <a href="contact.html">use the contact form</a>.</p>
     <p class="copyright">&copy; 2026 North Star Bakery</p>
   </footer>
+<script src="app.js"></script>
+  <script src="order.js"></script>
 </body>
 </html>
